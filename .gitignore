@@ -1,5 +1,4 @@
 ## Build generated
-build/
 DerivedData/
 
 ## Various settings
@@ -20,6 +19,3 @@ xcuserdata/
 
 ## OS
 .DS_Store
-
-## Project specific
-Source/build/Release
