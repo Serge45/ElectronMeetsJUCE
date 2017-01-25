@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Electrion Meets JUCE</title>
+  </head>
+  <body>
+    <div>
+      <button onclick="playTestSound()">Test sound</button>
+    </div>
+    <div>
+      <button onclick="queryAllAudioDevices()">Query output audio devices</button>
+      <select id="output-audio-device-combobox" onchange="selectAudioDevice(this)"></select>
+    </div>
+    <div>
+      <button onclick="juceString()">JUCE string</button>
+      <div id="juce-string"></div>
+    </div>
+    <script>
+    var juce = require('./build/Release/juce');
+
+    function playTestSound() {
+        juce.playTestSound();
+    }
+
+    function queryAllAudioDevices() {
+      let devices = juce.getAllAudioDevices();
+
+      let combobox = document.getElementById('output-audio-device-combobox');
+
+      for (var o in combobox) {
+        combobox.remove(o);
+      }
+
+      devices.forEach(function(name, idx, arr) {
+        let opt = document.createElement('option');
+        opt.text = name;
+        opt.value = name;
+        combobox.add(opt);
+      });
+    }
+
+    function juceString() {
+      var jString = juce.printJUCEString();
+      document.getElementById('juce-string').innerText = jString;
+    }
+
+    function selectAudioDevice(options) {
+      juce.setAudioDevice(options.value);
+    }
+    </script>
+  </body>
+</html>
