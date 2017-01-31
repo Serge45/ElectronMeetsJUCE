@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>15E65</string>
+	<string>15G31</string>
 	<key>CFBundleExecutable</key>
 	<string>Electron Framework</string>
 	<key>CFBundleIdentifier</key>
@@ -17,9 +17,9 @@
 	<key>DTSDKName</key>
 	<string>macosx10.1010.10</string>
 	<key>DTXcode</key>
-	<string>0721</string>
+	<string>0821</string>
 	<key>DTXcodeBuild</key>
-	<string>7C1002</string>
+	<string>8C1002</string>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>
 	<true/>
 </dict>

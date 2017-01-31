@@ -1,0 +1,6 @@
+syntax = "proto3";
+package nativecommand;
+
+message DeviceName {
+    string name = 1;
+}

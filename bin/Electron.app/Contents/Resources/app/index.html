@@ -3,51 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Electrion Meets JUCE</title>
+    <script type="text/javascript" src="audioPlugin.js"></script>
   </head>
   <body>
     <div>
-      <button onclick="playTestSound()">Test sound</button>
+      <button onclick="audioPlugin.playTestSound()">Test sound</button>
     </div>
     <div>
-      <button onclick="queryAllAudioDevices()">Query output audio devices</button>
-      <select id="output-audio-device-combobox" onchange="selectAudioDevice(this)"></select>
+      <button onclick="audioPlugin.queryAllAudioDevices()">Query output audio devices</button>
+      <select id="output-audio-device-combobox" onchange="audioPlugin.selectAudioDevice(this)">
+        <option value="" disabled selected style="display:none;"></option>
+      </select>
     </div>
     <div>
-      <button onclick="juceString()">JUCE string</button>
+      <canvas id="input-volume-canvas" width="128" height="32"></canvas>
+    </div>
+    <div>
+      <button onclick="audioPlugin.juceString()">JUCE string</button>
       <div id="juce-string"></div>
     </div>
-    <script>
-    var juce = require('./build/Release/juce');
-
-    function playTestSound() {
-        juce.playTestSound();
-    }
-
-    function queryAllAudioDevices() {
-      let devices = juce.getAllAudioDevices();
-
-      let combobox = document.getElementById('output-audio-device-combobox');
-
-      for (var o in combobox) {
-        combobox.remove(o);
-      }
-
-      devices.forEach(function(name, idx, arr) {
-        let opt = document.createElement('option');
-        opt.text = name;
-        opt.value = name;
-        combobox.add(opt);
-      });
-    }
-
-    function juceString() {
-      var jString = juce.printJUCEString();
-      document.getElementById('juce-string').innerText = jString;
-    }
-
-    function selectAudioDevice(options) {
-      juce.setAudioDevice(options.value);
-    }
-    </script>
   </body>
 </html>

@@ -363,6 +363,8 @@ typedef enum {
 } uv_membership;
 
 
+UV_EXTERN int uv_translate_sys_error(int sys_errno);
+
 UV_EXTERN const char* uv_strerror(int err);
 UV_EXTERN const char* uv_err_name(int err);
 
@@ -1459,6 +1461,8 @@ union uv_any_req {
 struct uv_loop_s {
   /* User data - use this for whatever. */
   void* data;
+  /* Callback when loop's watcher queue updates. */
+  void (*on_watcher_queue_updated)(uv_loop_t*);
   /* Loop reference counting. */
   unsigned int active_handles;
   void* handle_queue[2];

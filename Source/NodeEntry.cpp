@@ -12,10 +12,16 @@
 #include <string>
 #include <node.h>
 #include "JuceHeader.h"
+#include "protobuf/generatedfiles/audiodevicemanager.pb.h"
 
 namespace demo {
     namespace {
         class LoopThroughAudioCallback : public juce::AudioIODeviceCallback {
+        public:
+            LoopThroughAudioCallback() {}
+            ~LoopThroughAudioCallback() {}
+            float getPeak() const noexcept { return m_peak; }
+        private:
             
             void audioDeviceIOCallback (const float** inputChannelData,
                                         int numInputChannels,
@@ -27,16 +33,23 @@ namespace demo {
                     memcpy(outputChannelData[j], inputChannelData[0], sizeof(float) * numSamples);
                 }
                 
+                auto p = std::max_element(inputChannelData[0], inputChannelData[0] + numSamples, [] (float lhs, float rhs) {
+                    return std::abs(lhs) < std::abs(rhs);
+                });
+                
+                m_peak = std::abs(*p);
             }
 
             void audioDeviceAboutToStart (AudioIODevice* device) override {
                 
             }
 
-
             void audioDeviceStopped() override {
                 
             }
+            
+        private:
+            float m_peak = 0.f;
         };
     }
 
@@ -48,6 +61,7 @@ using v8::String;
 using v8::Value;
     
 std::unique_ptr<juce::AudioDeviceManager> deviceManager;
+LoopThroughAudioCallback *loopThroughCallback;
 
 void printString(const FunctionCallbackInfo<Value>& args) {
     juce::String jString("Hello JUCE");
@@ -78,23 +92,33 @@ void getAllAudioDevices(const FunctionCallbackInfo<Value>& args) {
     
 void setAudioDevice(const FunctionCallbackInfo<Value>& args) {
     
-    v8::String::Utf8Value devName(args[0]->ToString());
-    std::string nativeDevName(*devName);
+    v8::ArrayBuffer *protoBuf = v8::ArrayBuffer::Cast(*args[0]);
+    
+    nativecommand::DeviceName deviceNameMsg;
+    deviceNameMsg.ParseFromArray(protoBuf->GetContents().Data(), protoBuf->GetContents().ByteLength());
     
     juce::AudioDeviceManager::AudioDeviceSetup setup;
     deviceManager->getAudioDeviceSetup(setup);
-    setup.outputDeviceName = juce::String(nativeDevName);
-    deviceManager->setAudioDeviceSetup(setup, true);
+    setup.outputDeviceName = juce::String(deviceNameMsg.name());
+    auto devErr = deviceManager->setAudioDeviceSetup(setup, true);
+    
+    args.GetReturnValue().Set(v8::String::NewFromUtf8(args.GetIsolate(), devErr.toUTF8()));
+}
+    
+void getInputVolume(const FunctionCallbackInfo<Value>& args) {
+    args.GetReturnValue().Set(v8::Number::New(args.GetIsolate(), loopThroughCallback->getPeak()));
 }
 
 void init(Local<Object> exports) {
     deviceManager = std::unique_ptr<juce::AudioDeviceManager>(new juce::AudioDeviceManager());
     deviceManager->initialise(2, 2, nullptr, true);
-    deviceManager->addAudioCallback(new LoopThroughAudioCallback());
+    loopThroughCallback = new LoopThroughAudioCallback();
+    deviceManager->addAudioCallback(loopThroughCallback);
     NODE_SET_METHOD(exports, "printJUCEString", printString);
     NODE_SET_METHOD(exports, "playTestSound", playTestSound);
     NODE_SET_METHOD(exports, "getAllAudioDevices", getAllAudioDevices);
     NODE_SET_METHOD(exports, "setAudioDevice", setAudioDevice);
+    NODE_SET_METHOD(exports, "getInputVolume", getInputVolume);
 }
 
 NODE_MODULE(juce, init)
