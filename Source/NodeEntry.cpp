@@ -12,7 +12,6 @@
 #include <string>
 #include <node.h>
 #include "JuceHeader.h"
-#include "protobuf/generatedfiles/audiodevicemanager.pb.h"
 
 namespace demo {
     namespace {
@@ -92,16 +91,11 @@ void getAllAudioDevices(const FunctionCallbackInfo<Value>& args) {
     
 void setAudioDevice(const FunctionCallbackInfo<Value>& args) {
     
-    v8::ArrayBuffer *protoBuf = v8::ArrayBuffer::Cast(*args[0]);
-    
-    nativecommand::DeviceName deviceNameMsg;
-    deviceNameMsg.ParseFromArray(protoBuf->GetContents().Data(), protoBuf->GetContents().ByteLength());
-    
+    v8::String::Utf8Value deviceName(args[0]->ToString());
     juce::AudioDeviceManager::AudioDeviceSetup setup;
     deviceManager->getAudioDeviceSetup(setup);
-    setup.outputDeviceName = juce::String(deviceNameMsg.name());
+    setup.outputDeviceName = juce::String::fromUTF8(*deviceName);
     auto devErr = deviceManager->setAudioDeviceSetup(setup, true);
-    
     args.GetReturnValue().Set(v8::String::NewFromUtf8(args.GetIsolate(), devErr.toUTF8()));
 }
     

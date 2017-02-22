@@ -31,9 +31,7 @@ var audioPlugin = (function() {
   var audioDeviceMessage = require('./protobuf/generatedfiles/audiodevicemanager_pb.js');
 
   function selectAudioDevice(options) {
-    msg = new audioDeviceMessage.DeviceName();
-    msg.setName(options.value);
-    var err = juce.setAudioDevice(msg.serializeBinary());
+    var err = juce.setAudioDevice(options.value);
     console.log(err);
   }
 
@@ -49,7 +47,7 @@ var audioPlugin = (function() {
     var fillWidth = getInputVolume() * canvas.width;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillRect(0, 0, fillWidth, canvas.height);
-  }, 300);
+  }, 100);
 
   return {
     playTestSound: playTestSound,

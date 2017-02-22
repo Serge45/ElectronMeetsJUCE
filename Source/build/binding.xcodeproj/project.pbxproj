@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F6DCAD51E3A75210075D738 /* audiodevicemanager.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 2F6DCAD31E3A75210075D738 /* audiodevicemanager.pb.cc */; };
 		956D8F8F1E367FC300009BBB /* juce_audio_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 956D8F711E367FC300009BBB /* juce_audio_basics.mm */; };
 		956D8F911E367FC300009BBB /* juce_audio_devices.mm in Sources */ = {isa = PBXBuildFile; fileRef = 956D8F731E367FC300009BBB /* juce_audio_devices.mm */; };
 		956D8F931E367FC300009BBB /* juce_audio_formats.mm in Sources */ = {isa = PBXBuildFile; fileRef = 956D8F751E367FC300009BBB /* juce_audio_formats.mm */; };
@@ -39,9 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2F6DCAD11E3A75210075D738 /* audiodevicemanager.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = audiodevicemanager.proto; sourceTree = "<group>"; };
-		2F6DCAD31E3A75210075D738 /* audiodevicemanager.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audiodevicemanager.pb.cc; sourceTree = "<group>"; };
-		2F6DCAD41E3A75210075D738 /* audiodevicemanager.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audiodevicemanager.pb.h; sourceTree = "<group>"; };
 		3C10967F6C52BABDB3211AE2 /* common.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = common.gypi; path = "../../../../../.node-gyp/5.2.0/include/node/common.gypi"; sourceTree = "<group>"; };
 		5994D4CAAF6CF72A4AD8621C /* binding.gyp */ = {isa = PBXFileReference; explicitFileType = sourcecode; path = binding.gyp; sourceTree = "<group>"; };
 		783FE00B43AE0364DC5F2C59 /* NodeEntry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NodeEntry.cpp; sourceTree = "<group>"; };
@@ -1282,24 +1278,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2F6DCAD01E3A75210075D738 /* protobuf */ = {
-			isa = PBXGroup;
-			children = (
-				2F6DCAD11E3A75210075D738 /* audiodevicemanager.proto */,
-				2F6DCAD21E3A75210075D738 /* generatedfiles */,
-			);
-			path = protobuf;
-			sourceTree = "<group>";
-		};
-		2F6DCAD21E3A75210075D738 /* generatedfiles */ = {
-			isa = PBXGroup;
-			children = (
-				2F6DCAD31E3A75210075D738 /* audiodevicemanager.pb.cc */,
-				2F6DCAD41E3A75210075D738 /* audiodevicemanager.pb.h */,
-			);
-			path = generatedfiles;
-			sourceTree = "<group>";
-		};
 		38885F38CBC875FB50D53A58 /* Build */ = {
 			isa = PBXGroup;
 			children = (
@@ -1314,7 +1292,6 @@
 		4C0CBC86653C8C0393BDEDE6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2F6DCAD01E3A75210075D738 /* protobuf */,
 				783FE00B43AE0364DC5F2C59 /* NodeEntry.cpp */,
 			);
 			name = Source;
@@ -3494,7 +3471,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B1C4C3EF3A5796938939A59 /* Build configuration list for PBXNativeTarget "juce" */;
 			buildPhases = (
-				2F6DCACF1E3A723D0075D738 /* Compile protobuf */,
 				915CB42A096466C008DEB445 /* Sources */,
 				A4274478E97C1A6B7B5C680B /* Frameworks */,
 				956D9BFD1E37AD6500009BBB /* Copy files to electron bundle */,
@@ -3533,20 +3509,6 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F6DCACF1E3A723D0075D738 /* Compile protobuf */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Compile protobuf";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "protoc -I=${SRCROOT}/protobuf/ --cpp_out=${SRCROOT}/protobuf/generatedfiles/ ${SRCROOT}/protobuf/*.proto\nprotoc -I=${SRCROOT}/protobuf/ --js_out=import_style=commonjs,binary:${SRCROOT}/protobuf/generatedfiles/ ${SRCROOT}/protobuf/*.proto";
-		};
 		956D9BFD1E37AD6500009BBB /* Copy files to electron bundle */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3559,7 +3521,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/protobuf/generatedfiles\nmkdir -p ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release\nmkdir -p ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/node_modules\ncp ${SRCROOT}/{index.html,main.js,audioPlugin.js,package.json} ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/\ncp ${SRCROOT}/protobuf/generatedfiles/*.js ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/protobuf/generatedfiles/\ncp ${SRCROOT}/node_modules/*.js ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/node_modules/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/build/Release/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release/\n";
+			shellScript = "mkdir -p ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release\ncp ${SRCROOT}/{index.html,main.js,audioPlugin.js,package.json} ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/build/Release/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3577,7 +3539,6 @@
 				956D8F911E367FC300009BBB /* juce_audio_devices.mm in Sources */,
 				956D8F991E367FC300009BBB /* juce_core.mm in Sources */,
 				956D8F8F1E367FC300009BBB /* juce_audio_basics.mm in Sources */,
-				2F6DCAD51E3A75210075D738 /* audiodevicemanager.pb.cc in Sources */,
 				956D8F931E367FC300009BBB /* juce_audio_formats.mm in Sources */,
 				956D8F9F1E367FC300009BBB /* juce_events.mm in Sources */,
 				956D8FA31E367FC300009BBB /* juce_gui_basics.mm in Sources */,
@@ -3629,9 +3590,8 @@
 					"$(SRCROOT)/../JuceLibraryCode",
 					"$(SRCROOT)/../JUCE/modules",
 					"$(SRCROOT)/../include/node",
-					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-fno-strict-aliasing";
@@ -3639,7 +3599,6 @@
 					"-undefined",
 					dynamic_lookup,
 					"-Wl,-search_paths_first",
-					"-lprotobuf",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = juce;
@@ -3690,9 +3649,8 @@
 					"$(SRCROOT)/../JuceLibraryCode",
 					"$(SRCROOT)/../JUCE/modules",
 					"$(SRCROOT)/../include/node",
-					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-fno-strict-aliasing";
@@ -3700,7 +3658,6 @@
 					"-undefined",
 					dynamic_lookup,
 					"-Wl,-search_paths_first",
-					"-lprotobuf",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = juce;
