@@ -1,7 +1,11 @@
 {
   "name": "ElectronMeetsJUCE",
+  "description": "Front-end lifesaver",
   "version": "0.9.0",
   "main": "main.js",
+  "scripts": {
+    "preinstall": "echo disable 'node-gyp rebuild' script"
+  },
   "dependencies": {
     "nan": "^2.5.1"
   }
