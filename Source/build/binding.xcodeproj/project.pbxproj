@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		623319691E5EA438005F0886 /* NativeEmitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 623319671E5EA438005F0886 /* NativeEmitter.cpp */; };
 		956D8F8F1E367FC300009BBB /* juce_audio_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 956D8F711E367FC300009BBB /* juce_audio_basics.mm */; };
 		956D8F911E367FC300009BBB /* juce_audio_devices.mm in Sources */ = {isa = PBXBuildFile; fileRef = 956D8F731E367FC300009BBB /* juce_audio_devices.mm */; };
 		956D8F931E367FC300009BBB /* juce_audio_formats.mm in Sources */ = {isa = PBXBuildFile; fileRef = 956D8F751E367FC300009BBB /* juce_audio_formats.mm */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		3C10967F6C52BABDB3211AE2 /* common.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = common.gypi; path = "../../../../../.node-gyp/5.2.0/include/node/common.gypi"; sourceTree = "<group>"; };
 		5994D4CAAF6CF72A4AD8621C /* binding.gyp */ = {isa = PBXFileReference; explicitFileType = sourcecode; path = binding.gyp; sourceTree = "<group>"; };
+		623319671E5EA438005F0886 /* NativeEmitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NativeEmitter.cpp; sourceTree = "<group>"; };
+		623319681E5EA438005F0886 /* NativeEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeEmitter.h; sourceTree = "<group>"; };
 		783FE00B43AE0364DC5F2C59 /* NodeEntry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NodeEntry.cpp; sourceTree = "<group>"; };
 		86DA05936966AB7017271718 /* config.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = config.gypi; path = build/config.gypi; sourceTree = "<group>"; };
 		956D8F6F1E367FC300009BBB /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
@@ -1293,6 +1296,8 @@
 			isa = PBXGroup;
 			children = (
 				783FE00B43AE0364DC5F2C59 /* NodeEntry.cpp */,
+				623319671E5EA438005F0886 /* NativeEmitter.cpp */,
+				623319681E5EA438005F0886 /* NativeEmitter.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -3521,7 +3526,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release\ncp ${SRCROOT}/{index.html,main.js,audioPlugin.js,package.json} ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/build/Release/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release/\n";
+			shellScript = "mkdir -p ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release\ncp ${SRCROOT}/{index.html,main.js,audioPlugin.js,EventEmitter.min.js,nativeHandler.js,package.json} ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/build/Release/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3536,6 +3541,7 @@
 				956D8F9D1E367FC300009BBB /* juce_data_structures.mm in Sources */,
 				956D8FA91E367FC300009BBB /* juce_video.mm in Sources */,
 				956D8FA51E367FC300009BBB /* juce_gui_extra.mm in Sources */,
+				623319691E5EA438005F0886 /* NativeEmitter.cpp in Sources */,
 				956D8F911E367FC300009BBB /* juce_audio_devices.mm in Sources */,
 				956D8F991E367FC300009BBB /* juce_core.mm in Sources */,
 				956D8F8F1E367FC300009BBB /* juce_audio_basics.mm in Sources */,
@@ -3590,6 +3596,7 @@
 					"$(SRCROOT)/../JuceLibraryCode",
 					"$(SRCROOT)/../JUCE/modules",
 					"$(SRCROOT)/../include/node",
+					"$(SRCROOT)/../Source/node_modules/nan",
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_bundle;
@@ -3649,6 +3656,7 @@
 					"$(SRCROOT)/../JuceLibraryCode",
 					"$(SRCROOT)/../JUCE/modules",
 					"$(SRCROOT)/../include/node",
+					"$(SRCROOT)/../Source/node_modules/nan",
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_bundle;
