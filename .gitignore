@@ -1,6 +1,9 @@
 ## Build generated
 DerivedData/
 
+## npm modules
+node_modules/
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
