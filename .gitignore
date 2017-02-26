@@ -19,3 +19,14 @@ xcuserdata/
 
 ## OS
 .DS_Store
+
+## Visual Studio
+Source/build/.vs
+Source/build/Debug
+Source/build/Release
+Source/build/*.opendb
+Source/build/*.db
+Source/build/x64
+Source/build/Win32
+bin/Electron/resources/app
+bin/Electron.app/Contents/Resources/app

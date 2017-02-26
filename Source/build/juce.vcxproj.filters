@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\..\JuceLibraryCode">
+      <UniqueIdentifier>{77D7279D-A166-C122-ECAA-F98CEE331595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\NodeEntry.cpp">
+      <Filter>..</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NativeEmitter.cpp">
+      <Filter>..</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_audio_basics.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_audio_devices.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_audio_formats.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_audio_processors.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_audio_utils.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_core.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_cryptography.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_data_structures.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_events.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_graphics.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_gui_basics.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_gui_extra.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_opengl.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_video.cpp">
+      <Filter>..\..\JuceLibraryCode</Filter>
+    </ClCompile>
+    <None Include="..\binding.gyp">
+      <Filter>..</Filter>
+    </None>
+  </ItemGroup>
+</Project>

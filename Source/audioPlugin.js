@@ -6,16 +6,13 @@ var audioPlugin = (function() {
       juce.playTestSound();
   }
 
-  function queryAllAudioDevices() {
-    let devices = juce.getAllAudioDevices();
-
-    let combobox = document.getElementById('output-audio-device-combobox');
+  function updateCombobox(combobox, items) {
 
     while (combobox.options.length > 1) {
       combobox.remove(1);
     }
 
-    devices.forEach(function(name, idx, arr) {
+    items.forEach(function(name, idx, arr) {
       let opt = document.createElement('option');
       opt.text = name;
       opt.value = name;
@@ -23,12 +20,26 @@ var audioPlugin = (function() {
     });
   }
 
+  function queryAllAudioDevices() {
+    let devices = juce.getAllAudioDevices();
+    let combobox = document.getElementById('output-audio-device-combobox');
+    updateCombobox(combobox, devices);
+  }
+
   function juceString() {
     var jString = juce.printJUCEString();
     document.getElementById('juce-string').innerText = jString;
   }
 
-  var audioDeviceMessage = require('./protobuf/generatedfiles/audiodevicemanager_pb.js');
+  function selectAudioDeviceType(options) {
+    juce.setAudioDeviceType(options.value);
+  }
+
+  function getAudioDeviceTypes() {
+    let types = juce.getAllAudioDeviceTypes()
+    let combobox = document.getElementById('audio-device-types');
+    updateCombobox(combobox, types);
+  }
 
   function selectAudioDevice(options) {
     var err = juce.setAudioDevice(options.value);
@@ -54,6 +65,8 @@ var audioPlugin = (function() {
     queryAllAudioDevices: queryAllAudioDevices,
     juceString: juceString,
     selectAudioDevice: selectAudioDevice,
-    getInputVolume: getInputVolume
+    getInputVolume: getInputVolume,
+    getAudioDeviceTypes: getAudioDeviceTypes,
+    selectAudioDeviceType: selectAudioDeviceType,
   }
 })();

@@ -40,7 +40,7 @@ namespace demo {
                 m_peak = std::abs(*p);
             }
 
-            void audioDeviceAboutToStart (AudioIODevice* device) override {
+            void audioDeviceAboutToStart (juce::AudioIODevice* device) override {
 
             }
 
@@ -77,14 +77,38 @@ void playTestSound(const FunctionCallbackInfo<Value>& args)
     deviceManager->playTestSound();
 }
 
-void getAllAudioDevices(const FunctionCallbackInfo<Value>& args)
+void setAudioDeviceType(const FunctionCallbackInfo<Value>& args)
+{
+    v8::String::Utf8Value deviceName(args[0]->ToString());
+    deviceManager->setCurrentAudioDeviceType(juce::String::fromUTF8(*deviceName), true);
+}
+
+void getAllAudioDeviceTypes(const FunctionCallbackInfo<Value>& args)
 {
     juce::OwnedArray<juce::AudioIODeviceType> types;
     deviceManager->createAudioDeviceTypes(types);
 
-    juce::String typeName = types[0]->getTypeName();
-    types[0]->scanForDevices();
-    juce::StringArray deviceNames = types[0]->getDeviceNames();
+    v8::Local<v8::Array> returnHandle = v8::Array::New(args.GetIsolate());
+
+    for (int i = 0; i < types.size(); ++i) {
+        returnHandle->Set(i, String::NewFromUtf8(args.GetIsolate(), types[i]->getTypeName().toRawUTF8()));
+    }
+
+    args.GetReturnValue().Set(returnHandle);
+}
+
+void getAllAudioDevices(const FunctionCallbackInfo<Value>& args)
+{
+    auto typeName = deviceManager->getCurrentAudioDeviceType();
+    const juce::OwnedArray<juce::AudioIODeviceType> &types = deviceManager->getAvailableDeviceTypes();
+    juce::StringArray deviceNames;
+
+    for (int i = 0; i < types.size(); ++i) {
+        if (types[i]->getTypeName() == typeName) {
+            deviceNames = types[i]->getDeviceNames();
+            break;
+        }
+    }
 
     v8::Local<v8::Array> returnHandle = v8::Array::New(args.GetIsolate());
 
@@ -97,7 +121,6 @@ void getAllAudioDevices(const FunctionCallbackInfo<Value>& args)
 
 void setAudioDevice(const FunctionCallbackInfo<Value>& args)
 {
-
     v8::String::Utf8Value deviceName(args[0]->ToString());
     juce::AudioDeviceManager::AudioDeviceSetup setup;
     deviceManager->getAudioDeviceSetup(setup);
@@ -120,6 +143,8 @@ void init(Local<Object> exports)
     deviceManager->addAudioCallback(loopThroughCallback);
     NODE_SET_METHOD(exports, "printJUCEString", printString);
     NODE_SET_METHOD(exports, "playTestSound", playTestSound);
+    NODE_SET_METHOD(exports, "getAllAudioDeviceTypes", getAllAudioDeviceTypes);
+    NODE_SET_METHOD(exports, "setAudioDeviceType", setAudioDeviceType);
     NODE_SET_METHOD(exports, "getAllAudioDevices", getAllAudioDevices);
     NODE_SET_METHOD(exports, "setAudioDevice", setAudioDevice);
     NODE_SET_METHOD(exports, "getInputVolume", getInputVolume);

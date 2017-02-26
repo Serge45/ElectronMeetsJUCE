@@ -7,15 +7,21 @@
     <script type="text/javascript" src="nativeHandler.js"></script>
     <script type="text/javascript" src="audioPlugin.js"></script>
   </head>
-  <body>
+  <body onload="audioPlugin.getAudioDeviceTypes()">
     <div>
       <button onclick="audioPlugin.playTestSound()">Test sound</button>
     </div>
     <div>
-      <button onclick="audioPlugin.queryAllAudioDevices()">Query output audio devices</button>
+      <p>Device type:</p>
+      <select id="audio-device-types" onchange="audioPlugin.selectAudioDeviceType(this)">
+        <option value="" disabled selected style="display:none;"></option>
+      </select>
+    </div>
+    <div>
       <select id="output-audio-device-combobox" onchange="audioPlugin.selectAudioDevice(this)">
         <option value="" disabled selected style="display:none;"></option>
       </select>
+      <button onclick="audioPlugin.queryAllAudioDevices()">Query output audio devices</button>
     </div>
     <div>
       <canvas id="input-volume-canvas" width="128" height="32"></canvas>
