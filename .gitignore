@@ -1,5 +1,6 @@
 ## Build generated
 DerivedData/
+dist/
 
 ## npm modules
 node_modules/

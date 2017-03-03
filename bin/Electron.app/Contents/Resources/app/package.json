@@ -1,8 +1,0 @@
-{
-  "name": "ElectronMeetsJUCE",
-  "version": "0.9.0",
-  "main": "main.js",
-  "dependencies": {
-    "nan": "^2.5.1"
-  }
-}
