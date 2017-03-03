@@ -3476,9 +3476,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B1C4C3EF3A5796938939A59 /* Build configuration list for PBXNativeTarget "juce" */;
 			buildPhases = (
+				62A333E61E692CFF007AA70F /* Install Node Modules */,
 				915CB42A096466C008DEB445 /* Sources */,
 				A4274478E97C1A6B7B5C680B /* Frameworks */,
-				956D9BFD1E37AD6500009BBB /* Copy files to electron bundle */,
+				956D9BFD1E37AD6500009BBB /* Copy files to dist folder */,
+				626DEF211E69287900E9BC13 /* Build Front-End app */,
 			);
 			buildRules = (
 			);
@@ -3514,19 +3516,47 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		956D9BFD1E37AD6500009BBB /* Copy files to electron bundle */ = {
+		626DEF211E69287900E9BC13 /* Build Front-End app */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy files to electron bundle";
+			name = "Build Front-End app";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release\ncp ${SRCROOT}/{index.html,main.js,audioPlugin.js,EventEmitter.min.js,nativeHandler.js,package.json} ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/build/Release/\ncp ${BUILT_PRODUCTS_DIR}/*.node ${SRCROOT}/../bin/Electron.app/Contents/Resources/app/build/Release/\n";
+			shellScript = "${SRCROOT}/scripts/BuildFrontEnd.sh";
+		};
+		62A333E61E692CFF007AA70F /* Install Node Modules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Install Node Modules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "npm install";
+		};
+		956D9BFD1E37AD6500009BBB /* Copy files to dist folder */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy files to dist folder";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/scripts/CopyToDistFolder.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 

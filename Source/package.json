@@ -2,11 +2,35 @@
   "name": "ElectronMeetsJUCE",
   "description": "Front-end lifesaver",
   "version": "0.9.0",
-  "main": "main.js",
+  "main": "src/main.js",
+  "author": "Serge Lu",
+  "build": {
+    "appId": "positivegrid.electronmeetsjuce",
+    "files": [
+      "src/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ]
+  },
   "scripts": {
-    "preinstall": "echo disable 'node-gyp rebuild' script"
+    "preinstall": "echo disable 'node-gyp rebuild' script",
+    "postinstall": "install-app-deps",
+    "build": "gulp build",
+    "prerelease": "gulp build --env=production",
+    "release": "build",
+    "start": "gulp start"
   },
   "dependencies": {
     "nan": "^2.5.1"
+  },
+  "devDependencies": {
+    "electron": "1.5.1",
+    "electron-builder": "^14.5.3",
+    "gulp": "^3.9.1",
+    "gulp-batch": "^1.0.5",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "minimist": "^1.2.0",
+    "require-dir": "^0.3.1"
   }
 }
