@@ -88,7 +88,7 @@
       <PreprocessorDefinitions>NODE_GYP_MODULE_NAME=juce;USING_UV_SHARED=1;USING_V8_SHARED=1;V8_DEPRECATION_WARNINGS=1;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;BUILDING_NODE_EXTENSION;DEBUG;_DEBUG;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>$(SolutionDir)postBuild.bat $(PlatformName) $(ConfigurationName) $(ProjectName)</Command>
+      <Command>$(SolutionDir)..\scripts\CopyToDistFolder.bat $(SolutionDir).. $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,7 +144,7 @@
       <PreprocessorDefinitions>NODE_GYP_MODULE_NAME=juce;USING_UV_SHARED=1;USING_V8_SHARED=1;V8_DEPRECATION_WARNINGS=1;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>$(SolutionDir)postBuild.bat $(PlatformName) $(ConfigurationName) $(ProjectName)</Command>
+      <Command>$(SolutionDir)..\scripts\CopyToDistFolder.bat $(SolutionDir)..\ $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

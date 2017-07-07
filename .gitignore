@@ -32,5 +32,6 @@ Source/build/*.opendb
 Source/build/*.db
 Source/build/x64
 Source/build/Win32
+Source/build/*.user
 bin/Electron/resources/app
 bin/Electron.app/Contents/Resources/app
