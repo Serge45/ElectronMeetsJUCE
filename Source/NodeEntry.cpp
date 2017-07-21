@@ -14,7 +14,7 @@
 #include "JuceHeader.h"
 #include "NativeEmitter.h"
 
-namespace demo {
+namespace emj {
     namespace {
         class LoopThroughAudioCallback : public juce::AudioIODeviceCallback {
         public:
